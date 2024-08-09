@@ -8,14 +8,14 @@ from users.views import (UserRegistrationAPIView, UserListAPIView, UserRetrieveA
 app_name = UsersConfig.name
 
 urlpatterns = [
-    # User
-    path('register/', UserRegistrationAPIView.as_view(), name='registration'),
+    # Auth
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('registration/', UserRegistrationAPIView.as_view(), name='registration'),
     path('login/', TokenObtainPairView.as_view(), name='login'),
+
+    # User
     path('', UserListAPIView.as_view(), name='user_list'),
     path('<int:pk>/', UserRetrieveAPIView.as_view(), name='user_retrieve'),
-    path('edit/<int:pk>/', UserUpdateAPIView.as_view(), name='user_edit'),
-    path('delete/<int:pk>/', UserDestroyAPIView.as_view(), name='user_delete'),
-
-    # Token
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('<int:pk>/edit/', UserUpdateAPIView.as_view(), name='user_edit'),
+    path('<int:pk>/delete/', UserDestroyAPIView.as_view(), name='user_delete')
 ]
