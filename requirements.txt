@@ -1,7 +1,10 @@
 django==4.2
 djangorestframework
+djangorestframework-simplejwt
 drf-spectacular
 django-filter
+gunicorn
+psycopg2-binary
 python-dotenv
 flake8
 black
