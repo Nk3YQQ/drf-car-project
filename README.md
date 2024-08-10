@@ -1,24 +1,35 @@
+# Результаты тестирования
+
+![Workflow Status](https://github.com/Nk3YQQ/drf-car-project/actions/workflows/main.yml/badge.svg)
+[![Coverage Status](coverage/coverage.svg)](coverage/coverage-report.txt)
+
 # Структура проекта
 ```
 drf-car-project/
+|—— cars/ # Приложение машин
+    |—— migrations/  
+    |—— __init__.py
+    |—— admin.py
+    |—— apps.py
+    |—— filters.py
+    |—— models.py
+    |—— paginators.py
+    |—— serializers.py
+    |—— tests.py
+    |—— urls.py
+    |—— views.py
 |—— config/ # Настройки проекта
     |—— __init__.py
     |—— asgi.py
     |—— settings.py
     |—— urls.py
     |—— wsgi.py
-|—— nginx/ # Нстройка для образа nginx
+|—— coverage/ # Результаты тестирования
+    |—— coverage.svg
+    |—— coverage-report.txt
+|—— nginx/ # Настройка для образа nginx
     |—— Dockerfile
     |—— nginx.conf
-|—— car/ # Приложение машин
-    |—— migrations/  
-    |—— __init__.py
-    |—— admin.py
-    |—— apps.py
-    |—— models.py
-    |—— serializers.py
-    |—— urls.py
-    |—— views.py
 |—— users/ # Приложение пользователей
     |—— management/
     |—— migrations/
@@ -26,7 +37,10 @@ drf-car-project/
     |—— admin.py
     |—— apps.py
     |—— models.py
+    |—— permissions.py
     |—— serializers.py
+    |—— services.py
+    |—— tests.py
     |—— urls.py
     |—— views.py
 |—— .dockerignore
@@ -46,8 +60,8 @@ drf-car-project/
 
 # Результаты работы:
 - ### Реализован CRUD для машин и пользователей
-- ### Создано API для приложения и задокументирована в OpenAPI
-- ### Разработан механизм аутентификации и авторизации происходит с помощью JWT Token и Bearer
+- ### Приложение задокументировано в Swagger
+- ### Разработан механизм аутентификации и авторизации с помощью JWT Token и Bearer
 - ### Написаны тесты для API
 - ### Реализован запуск приложения с помощью Docker, gunicorn и nginx
 - ### Разработан механизм непрерывной интеграции (CI)
@@ -71,6 +85,16 @@ git clone git@github.com:Nk3YQQ/drf-car-project.git
 
 ## 2) Добавьте файл .env для переменных окружения
 Чтобы запустить проект, понадобятся переменные окружения, которые необходимо добавить в созданный Вами .env файл.
+
+### С помощью pip
+```
+pip install -r requirements.txt
+```
+
+### С помощью poetry
+```
+poetry install
+```
 
 Пример переменных окружения необходимо взять из файла .env.sample
 

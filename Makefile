@@ -14,6 +14,8 @@ tests:
 	docker-compose -f docker-compose.dev.yml exec -T app python3 manage.py test
 
 linters:
+	docker-compose exec -T app flake8 config/
+	docker-compose exec -T app flake8 cars/
 	docker-compose exec -T app flake8 users/
 
 stop:
