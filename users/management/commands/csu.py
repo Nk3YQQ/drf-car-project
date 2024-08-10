@@ -6,17 +6,17 @@ from users.models import User
 
 
 class Command(BaseCommand):
-    """ Команда для создания админа """
+    """Команда для создания админа"""
 
     def handle(self, *args, **options):
         try:
             superuser, created = User.objects.get_or_create(
-                email='admin@mail.ru',
-                first_name='Admin',
-                last_name='Adminov',
-                password=make_password('908poi543tre'),
+                email="admin@mail.ru",
+                first_name="Admin",
+                last_name="Adminov",
+                password=make_password("908poi543tre"),
                 is_staff=True,
-                is_superuser=True
+                is_superuser=True,
             )
             if created:
                 self.stdout.write(self.style.SUCCESS('User "Admin" was created'))
